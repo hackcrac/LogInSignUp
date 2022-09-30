@@ -41,6 +41,7 @@ class SignUpFragment : Fragment() {
         val editTextEmail = binding.editTextEmailSignUp
         val editTextPassword = binding.editTextPasswordSignUp
         binding.SignUpButton.setOnClickListener {
+            binding.progressBarSignUp.visibility=View.VISIBLE
             hideKeyboard(it)
             val emailText = editTextEmail.text.toString()
             val passWordText = editTextPassword.text.toString()
@@ -78,8 +79,10 @@ class SignUpFragment : Fragment() {
                                 val currentUser = auth.currentUser
                                 FirebaseDatabase.getInstance().getReference("Users").child(currentUser!!.uid).setValue(user).addOnCompleteListener(
                                     OnCompleteListener {
+                                        binding.progressBarSignUp.visibility=View.GONE
                                         if(it.isSuccessful){
-                                            Snackbar.make(view, "Account created Successfully.",
+                                            currentUser.sendEmailVerification()
+                                            Snackbar.make(view, "Check your e-mail to verify your account.",
                                                 Snackbar.LENGTH_SHORT).show()
                                             auth.signOut()
                                         }
@@ -89,6 +92,7 @@ class SignUpFragment : Fragment() {
                                         }
                                     })
                             } else {
+                                binding.progressBarSignUp.visibility=View.GONE
                                 // If sign in fails, display a message to the user.
                                 Log.w("SignUp", "createUserWithEmail:failure", task.exception)
                                 val message = task.exception?.message

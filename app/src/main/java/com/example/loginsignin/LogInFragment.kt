@@ -24,8 +24,10 @@ class LogInFragment : Fragment() {
         super.onCreate(savedInstanceState)
         auth=FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
-        if(currentUser!=null){
-            findNavController().navigate(R.id.action_logInFragment_to_profileFragment)
+        if (currentUser != null) {
+            if(currentUser.isEmailVerified){
+                findNavController().navigate(R.id.action_logInFragment_to_profileFragment)
+            }
         }
     }
     override fun onCreateView(
@@ -42,6 +44,7 @@ class LogInFragment : Fragment() {
         val emailEditText =binding.editTextEmail
         val passWordEditText = binding.editTextPassword
         binding.LogInButton.setOnClickListener {
+            binding.progressBarLogIn.visibility=View.VISIBLE
             hideKeyboard(it)
             val emailText = emailEditText.text.toString()
             val passWordText = passWordEditText.text.toString()
@@ -65,9 +68,18 @@ class LogInFragment : Fragment() {
                 activity?.let { it1 ->
                     auth.signInWithEmailAndPassword(emailText, passWordText)
                         .addOnCompleteListener(it1) { task ->
+                            binding.progressBarLogIn.visibility=View.GONE
                             if (task.isSuccessful) {
                                 // Sign in success, update UI with the signed-in user's information
-                                findNavController().navigate(R.id.action_logInFragment_to_profileFragment)
+                                val currentUser = auth.currentUser
+                                if(currentUser!!.isEmailVerified){
+                                    findNavController().navigate(R.id.action_logInFragment_to_profileFragment)
+                                }
+                                else{
+                                    currentUser.sendEmailVerification()
+                                    Snackbar.make(view, "Your Account is not verified, check e-mail to verify your account.",
+                                        Snackbar.LENGTH_SHORT).show()
+                                }
                             } else {
                                 // If sign in fails, display a message to the user.
                                 val message = task.exception?.message
