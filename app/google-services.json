@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "728804800483",
+    "project_id": "loginsignin-d07bc",
+    "storage_bucket": "loginsignin-d07bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728804800483:android:a4e691c9fa0ef47841d2d6",
+        "android_client_info": {
+          "package_name": "com.example.loginsignin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "728804800483-ufmjuclb75bv2dhcpufihmbvgej3llnn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWY8Kvyb2_TCoP0QnJH38JzFnXRwK8VjE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "728804800483-ufmjuclb75bv2dhcpufihmbvgej3llnn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
