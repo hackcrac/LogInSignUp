@@ -41,7 +41,7 @@ class SignUpFragment : Fragment() {
         val editTextEmail = binding.editTextEmailSignUp
         val editTextPassword = binding.editTextPasswordSignUp
         binding.SignUpButton.setOnClickListener {
-            binding.progressBarSignUp.visibility=View.VISIBLE
+
             hideKeyboard(it)
             val emailText = editTextEmail.text.toString()
             val passWordText = editTextPassword.text.toString()
@@ -69,6 +69,7 @@ class SignUpFragment : Fragment() {
             }
 
             if(flag){
+                binding.progressBarSignUp.visibility=View.VISIBLE
                 activity?.let { it1 ->
                     auth.createUserWithEmailAndPassword(emailText, passWordText)
                         .addOnCompleteListener(it1) { task ->

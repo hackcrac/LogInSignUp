@@ -44,7 +44,6 @@ class LogInFragment : Fragment() {
         val emailEditText =binding.editTextEmail
         val passWordEditText = binding.editTextPassword
         binding.LogInButton.setOnClickListener {
-            binding.progressBarLogIn.visibility=View.VISIBLE
             hideKeyboard(it)
             val emailText = emailEditText.text.toString()
             val passWordText = passWordEditText.text.toString()
@@ -65,6 +64,7 @@ class LogInFragment : Fragment() {
                 flag=false
             }
             if(flag){
+                binding.progressBarLogIn.visibility=View.VISIBLE
                 activity?.let { it1 ->
                     auth.signInWithEmailAndPassword(emailText, passWordText)
                         .addOnCompleteListener(it1) { task ->
