@@ -8,30 +8,37 @@
         tools:context=".LogInFragment">
 
 
-        <EditText
-            android:id="@+id/editTextEmail"
-            android:layout_width="272dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="208dp"
-            android:ems="10"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="272dp"
+        android:layout_height="48dp"
+        android:background="@drawable/edit_text_style"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.39" />
 
-        <EditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="272dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="32dp"
-            android:ems="10"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:textColorHint="#757575"
-            app:layout_constraintEnd_toEndOf="@+id/editTextEmail"
-            app:layout_constraintStart_toStartOf="@+id/editTextEmail"
-            app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="272dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/edit_text_style"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:textColorHint="#757575"
+        app:layout_constraintEnd_toEndOf="@+id/editTextEmail"
+        app:layout_constraintStart_toStartOf="@+id/editTextEmail"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
         <Button
             android:id="@+id/LogInButton"
@@ -54,16 +61,17 @@
             app:layout_constraintTop_toBottomOf="@+id/LogInButton"
             android:layout_width="wrap_content" />
 
-        <TextView
-            android:id="@+id/signUpText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/signup"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/LogInButton"
-            app:layout_constraintStart_toEndOf="@+id/forgetTextView"
-            app:layout_constraintTop_toBottomOf="@+id/LogInButton" />
+    <TextView
+        android:id="@+id/signUpText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/signup"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/LogInButton"
+        app:layout_constraintStart_toEndOf="@+id/forgetTextView"
+        app:layout_constraintTop_toBottomOf="@+id/LogInButton" />
 
     <ProgressBar
         android:id="@+id/progressBarLogIn"
@@ -76,4 +84,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.39" />
+
+    <ImageView
+        android:id="@+id/imageViewLogIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:src="@drawable/acm"
+        app:layout_constraintBottom_toTopOf="@+id/welcomeTextView"
+        app:layout_constraintEnd_toEndOf="@+id/welcomeTextView"
+        app:layout_constraintStart_toStartOf="@+id/welcomeTextView" />
+
+    <TextView
+        android:id="@+id/welcomeTextView"
+        android:layout_width="272dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:text="@string/welcome_back"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
+        app:layout_constraintEnd_toEndOf="@+id/editTextEmail"
+        app:layout_constraintStart_toStartOf="@+id/editTextEmail" />
 </androidx.constraintlayout.widget.ConstraintLayout>

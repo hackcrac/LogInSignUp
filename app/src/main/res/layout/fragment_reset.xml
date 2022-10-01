@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="16dp"
     tools:context=".LogInFragment">
 
 
@@ -11,14 +12,16 @@
         android:id="@+id/editTextEmailReset"
         android:layout_width="272dp"
         android:layout_height="48dp"
+        android:background="@drawable/edit_text_style"
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/ResetButton"
@@ -31,5 +34,30 @@
         app:layout_constraintStart_toStartOf="@+id/editTextEmailReset"
         app:layout_constraintTop_toBottomOf="@+id/editTextEmailReset"
         tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/imageViewLogIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:src="@drawable/acm"
+        app:layout_constraintBottom_toTopOf="@+id/forgetPasswordTextView"
+        app:layout_constraintEnd_toEndOf="@+id/forgetPasswordTextView"
+        app:layout_constraintStart_toStartOf="@+id/forgetPasswordTextView" />
+
+    <TextView
+        android:id="@+id/forgetPasswordTextView"
+        android:layout_width="272dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:text="@string/forget_your_password"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextEmailReset"
+        app:layout_constraintEnd_toEndOf="@+id/editTextEmailReset"
+        app:layout_constraintStart_toStartOf="@+id/editTextEmailReset" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
